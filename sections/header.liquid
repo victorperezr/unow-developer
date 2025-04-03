@@ -18,8 +18,8 @@
 
 <style>
   header-drawer {
-    justify-self: start;
-    margin-left: -1.2rem;
+    justify-self: flex-end;
+    margin-left: 0;
   }
 
   {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
@@ -78,7 +78,7 @@
 
 {%- style -%}
   .header {
-    padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
+    padding: 4px 16px 4px 16px;
   }
 
   .section-header {
@@ -122,7 +122,7 @@
   {% if header_tag == 'sticky-header' %}
     data-sticky-type="{{ section.settings.sticky_header_type }}"
   {% endif %}
-  class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}"
+  class="header-wrapper color-{{ section.settings.color_scheme }} {% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}"
 >
   {%- liquid
     assign social_links = false
@@ -302,13 +302,25 @@
         {%- endif -%}
       </a>
     </div>
+    <div class="header__buttons small-hide">
+      <div class="header__buttons--inner">
+        {%- unless customer -%}
+          <a class="button button--tertiary" href="{{- routes.account_login_url -}}" aria-label="Account login" title="Account login">
+            {{- 'customer.log_in' | t -}}
+          </a>
+          <a class="button button--primary" href="{{- routes.account_register_url -}}" aria-label="Account register" title="Account register">
+            {{- 'customer.register.title' | t -}}
+          </a>
+        {%- endunless -%}
+      </div>
+    </div>
   </header>
 </{{ header_tag }}>
 
 {%- if settings.cart_type == 'notification' -%}
   {%- render 'cart-notification',
     color_scheme: section.settings.color_scheme,
-    desktop_menu_type: section.settings.menu_type_desktop
+    desktop_menu_type: section.settings.menu_type_desktop 
   -%}
 {%- endif -%}
 
@@ -633,7 +645,7 @@
       "id": "padding_top",
       "min": 0,
       "max": 36,
-      "step": 4,
+      "step": 1,
       "unit": "px",
       "label": "t:sections.all.padding.padding_top",
       "default": 20
@@ -643,7 +655,7 @@
       "id": "padding_bottom",
       "min": 0,
       "max": 36,
-      "step": 4,
+      "step": 1,
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 20
