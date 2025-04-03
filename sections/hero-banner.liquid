@@ -32,12 +32,12 @@
   }
 {%- endstyle -%}
 
-<div class="hero-banner section-{{ section.id }} color-{{ section.settings.color_scheme }} gradient">
+<div class="hero-banner section-{{ section.id }} color-{{ section.settings.color_scheme }} gradient"> 
   {%- if section.settings.image_hero == blank and section.settings.background_asset != blank -%}
     <div class="hero-banner-asset">
       <picture>
-        {% assign image_widths_asset = '356,480,600,800' | split: ',' %}
-        {% assign desktop_srcset_asset = '' %}
+        {% assign image_widths_asset = '320,480' | split: ',' %}
+          {% assign desktop_srcset_asset = '' %}
         {% assign mobile_srcset_asset = '' %}
 
         {% if section.settings.background_asset_mobile != blank %}
@@ -52,12 +52,12 @@
             media="(max-width: 600px)"
             srcset="{{ mobile_srcset_asset | strip_newlines | replace: ',,', ',' }}"
             sizes="100vw"
-          >
+          > 
         {% endif %}
         {{
           section.settings.background_asset
-          | image_url: width: 800
-          | image_tag: loading: 'lazy', class: 'image-asset', srcset: desktop_srcset_asset
+          | image_url: width: 320
+          | image_tag: loading: 'eager', class: 'image-asset', srcset: desktop_srcset_asset, alt: 'Image asset'
         }}
       </picture>
     </div>
@@ -160,7 +160,7 @@
                 | image_url: width: 800
                 | image_tag:
                   class: 'image--featured-image',
-                  loading: loading_position,
+                  loading: 'eager',
                   srcset: desktop_srcset,
                   fetchpriority: 'auto',
                   decoding: 'async',
