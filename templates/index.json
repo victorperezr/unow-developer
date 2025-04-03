@@ -7,78 +7,182 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "hero_banner_VriA8b": {
+      "type": "hero-banner",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "featured_image_NpxUqr": {
+          "type": "featured_image",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "featured_image_block": "shopify://shop_images/Credit_card_mockup-min.png",
+            "featured_image_block_mobile": "shopify://shop_images/Credit_card_mockup_4_-min.png"
           }
         },
-        "button": {
-          "type": "buttons",
+        "featured_image_HkqaEV": {
+          "type": "featured_image",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
+            "featured_image_block": "shopify://shop_images/Credit_card_mockup_1_-min.png",
+            "featured_image_block_mobile": "shopify://shop_images/Credit_card_mockup_5_-min.png"
+          }
+        }
+      },
+      "block_order": [
+        "featured_image_NpxUqr",
+        "featured_image_HkqaEV"
+      ],
+      "settings": {
+        "color_scheme": "scheme-5",
+        "background_asset": "shopify://shop_images/Light_accent_1_-min.png",
+        "background_asset_mobile": "shopify://shop_images/Light_accent_3.png",
+        "min_height_mobile": 808,
+        "min_height_tablet": 808,
+        "min_height_desktop": 938,
+        "position_content": "center",
+        "text_align_tablet": "center",
+        "hero_preheading": "Super. Simple. Banking.",
+        "hero_heading": "Simple banking that works like magic.",
+        "tag_heading": "h1",
+        "subheading": "<p>Simple, transparent banking. No hidden fees and free overdrafts.</p>",
+        "hero_cta_url_1": "#",
+        "hero_cta_text_1": "Demo",
+        "hero_cta_url_2": "#",
+        "hero_cta_text_2": "Sign up"
+      }
+    },
+    "rich_text_8m68Ed": {
+      "type": "rich-text",
+      "blocks": {
+        "caption_pK4Pnq": {
+          "type": "caption",
+          "settings": {
+            "caption": "Features",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading_PGYmtD": {
+          "type": "heading",
+          "settings": {
+            "heading": "The only card you’ll ever need. Simple.",
+            "heading_size": "h2"
+          }
+        },
+        "text_MMJMiA": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Spend smarter, lower your bills, get cashback on everything you buy, and unlock credit to grow your business.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "caption_pK4Pnq",
+        "heading_PGYmtD",
+        "text_MMJMiA"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "scheme-54bfb41c-0d39-4dec-b329-34a7f4a2cb75",
+        "full_width": true,
+        "padding_top": 96,
+        "padding_bottom": 86
+      }
+    },
+    "image_with_text_jgWpJg": {
+      "type": "image-with-text",
+      "blocks": {
+        "content_with_icon_Tt7MXP": {
+          "type": "content_with_icon",
+          "settings": {
+            "icon": "shopify://shop_images/Featured_icon_cadf82a5-9fa7-4b5e-a664-60398cf8201a.svg",
+            "content": "<p><strong>Unlimited cards</strong></p><p>Give your team the autonomy they need with access to as many cards as they need. Authorise purchases with a click. Simple.</p>"
+          }
+        },
+        "content_with_icon_qefbQd": {
+          "type": "content_with_icon",
+          "settings": {
+            "icon": "shopify://shop_images/Featured_icon_1.svg",
+            "content": "<p><strong>Unlimited cards</strong></p><p>Give your team the autonomy they need with access to as many cards as they need. Authorise purchases with a click. Simple.</p><p><a href=\"#\" target=\"_blank\" title=\"#\">Learn more</a></p>"
+          }
+        },
+        "content_with_icon_8VjkNW": {
+          "type": "content_with_icon",
+          "settings": {
+            "icon": "shopify://shop_images/Featured_icon_2.svg",
+            "content": "<p><strong>Unlimited cards</strong></p><p>Give your team the autonomy they need with access to as many cards as they need. Authorise purchases with a click. Simple.</p><p><a href=\"#\" target=\"_blank\" title=\"#\">Learn more</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "content_with_icon_Tt7MXP",
+        "content_with_icon_qefbQd",
+        "content_with_icon_8VjkNW"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Content.png",
+        "image_mobile": "shopify://shop_images/Content_1.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_fU3hWd": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_9y9bNf": {
+          "type": "heading",
+          "settings": {
+            "heading": "Start your free trial",
+            "heading_size": "h2"
+          }
+        },
+        "text_6Kg74y": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Join over 4,000+ startups already growing with Untitled.</p>"
+          }
+        },
+        "button_Q7VifV": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn more",
+            "button_link": "#",
+            "button_style_secondary": true,
+            "button_label_2": "Get started",
+            "button_link_2": "#",
             "button_style_secondary_2": false
           }
         }
       },
       "block_order": [
-        "heading",
-        "button"
+        "heading_9y9bNf",
+        "text_6Kg74y",
+        "button_Q7VifV"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
-      }
-    },
-    "featured_collection": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-058b6cf7-ed53-4cc9-9fcc-28d745a38eda",
+        "full_width": true,
+        "padding_top": 96,
+        "padding_bottom": 96
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "hero_banner_VriA8b",
+    "rich_text_8m68Ed",
+    "image_with_text_jgWpJg",
+    "rich_text_fU3hWd"
   ]
 }
