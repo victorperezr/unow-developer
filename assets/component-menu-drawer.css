@@ -86,6 +86,7 @@ details[open].menu-opening > .menu-drawer__submenu {
 
 .menu-drawer__navigation {
   padding: 3rem 0;
+  background: var(--color-primary);
 }
 
 .menu-drawer__inner-submenu {

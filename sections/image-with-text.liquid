@@ -11,7 +11,12 @@
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
+
+    #shopify-section-{{ section.id }} .page-width{
+      padding-right: 0;
+    }
   }
+
 {%- endstyle -%}
 
 {%- liquid
@@ -49,11 +54,28 @@
               (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)
             {%- endcapture -%}
               {%- endif -%}
-              {{
-                section.settings.image
-                | image_url: width: 1500
-                | image_tag: sizes: sizes, widths: widths, fetchpriority: fetch_priority
-              }}
+              <picture>
+                {%- if section.settings.image_mobile != blank -%}
+                  {% assign image_widths = '356,480,600,800' | split: ',' %}
+                  {% assign mobile_srcset = '' %}
+                  {% assign desktop_srcset = '' %}
+                    {%- for width in image_widths -%}
+                      {% capture desktop_srcset %}{{ desktop_srcset }} {{ section.settings.background | image_url: width: width }} {{ width }}w,{% endcapture %}
+                      {% capture mobile_srcset %}{{ mobile_srcset }} {{ section.settings.image_mobile | image_url: width: width }} {{ width }}w,{% endcapture %}
+                    {%- endfor -%}
+          
+                    <source
+                      media="(max-width: 600px)"
+                      srcset="{{ mobile_srcset | strip_newlines | replace: ',,', ',' }}"
+                      sizes="100vw"
+                    > 
+                {%- endif -%}
+                {{
+                  section.settings.image
+                  | image_url: width: 1500
+                  | image_tag: sizes: sizes, widths: widths, fetchpriority: fetch_priority, srcset: desktop_srcset
+                }}
+              </picture>
             {%- else -%}
               {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
             {%- endif -%}
@@ -73,6 +95,17 @@
                   >
                     {{ block.settings.heading }}
                   </h2>
+                {%- when 'content_with_icon' -%}
+                  {%- if block.settings.content != blank -%}
+                    <div class="image-with-text content-with-icon" {{ block.shopify_attributes }}>
+                      <div class="content-with-icon--inner">
+                        {%- if block.settings.icon != blank -%}
+                          <i class="icon-cwi">{{- block.settings.icon |  image_url: width: 100 | image_tag: loading: 'lazy' -}}</i>
+                        {%- endif -%}
+                        <span class="content-cwi">{{- block.settings.content -}}</span>
+                      </div>
+                  </div>
+                  {%- endif -%}
                 {%- when 'caption' -%}
                   <p
                     class="image-with-text__text image-with-text__text--caption {{ block.settings.text_style }} {{ block.settings.text_style }}--{{ block.settings.text_size }} {{ block.settings.text_style }}"
@@ -119,6 +152,11 @@
       "type": "image_picker",
       "id": "image",
       "label": "t:sections.image-with-text.settings.image.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Image mobile"
     },
     {
       "type": "select",
@@ -360,6 +398,22 @@
           ],
           "default": "h1",
           "label": "t:sections.all.heading_size.label"
+        }
+      ]
+    },
+    {
+      "type": "content_with_icon",
+      "name": "Content with icon",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
         }
       ]
     },
